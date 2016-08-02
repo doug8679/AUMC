@@ -1,0 +1,258 @@
+Add Significant Event for Individual
+
+The Add Significant Event for Individual service creates a significant event record for the specified individual. The list of acceptable event_id values comes from the Significant Event List service.
+
+Service Name
+
+add_individual_significant_event
+
+Required Parameters
+
+name	type
+id	integer
+event_id	integer
+date	datetime
+Optional Parameters
+
+None
+
+Example Curl
+
+  curl -u user:pass -d "" "https://yourchurch.ccbchurch.com/api.php?srv=add_individual_significant_event&event_id=1&id=48&date=2013-08-23"
+Example XML
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ccb_api>
+  <request>
+    <parameters>
+      <argument value="add_individual_significant_event" name="srv"/>
+      <argument value="1" name="event_id"/>
+      <argument value="48" name="id"/>
+      <argument value="2013-08-23" name="date"/>
+    </parameters>
+  </request>
+  <response>
+    <service>add_individual_significant_event</service>
+    <service_action>execute</service_action>
+    <availability>public</availability>
+    <individuals count="1">
+      <individual id="48">
+        <name>Larry</name>
+        <campus id="1">Church of Cucumbers</campus>
+        <significant_events>
+          <significant_event id="1">
+            <name>High School Graduation</name>
+            <date>2013-08-23 00:00:00</date>
+            <modifier id="0">System User</modifier>
+            <modified>2014-01-28 10:25:37</modified>
+          </significant_event>
+        </significant_events>
+      </individual>
+    </individuals>
+  </response>
+</ccb_api>
+
+
+Lookup Table Services
+Several services are provided to get the contents of different lookup value lists from the Church Community Builder system. These lookup values can come from the following areas:
+
+Group Types
+Group Meeting Days
+Group Meeting Times
+User Defined Fields for Groups
+COA Categories
+Group Departments
+Group Areas of Town
+With each service you can preform a list, detail, update, or insert. For example you can get the listing of all age brackets, the detail of a single age bracket, update an existing age bracket or insert a new age bracket. The service calls for these would be age_bracket_list, age_bracket_detail, age_bracket_update, age_bracket_insert. The complete list of services is listed below with each requiring one of the following to be appended to create a valid service _list, _detail, _update, or _insert (for example age_bracket is not a valid service). If you pass in an invalid id into any of the _update services the response will contain empty elements instead of an error.
+
+ability
+activity
+age_bracket
+area
+church_service
+event_grouping
+gift
+group_grouping
+group_type
+how_joined_church
+how_they_heard
+meet_day
+meet_time
+membership_type
+passion
+reason_left_church
+school
+school_grade
+significant_event
+spiritual_maturity
+style
+transaction_grouping
+udf_grp_pulldown_1
+udf_grp_pulldown_2
+udf_grp_pulldown_3
+udf_ind_pulldown_1
+udf_ind_pulldown_2
+udf_ind_pulldown_3
+udf_ind_pulldown_4
+udf_ind_pulldown_5
+udf_ind_pulldown_6
+udf_resource_pulldown_1
+Example Curl
+
+Detail
+
+  curl -u user:pass -d "" "https://yourchurch.ccbchurch.com/api.php?srv=ability_detail&ability_id=9"
+Insert
+
+  curl -u user:pass -d "" "https://yourchurch.ccbchurch.com/api.php?srv=ability_insert&name=newValue&order_by=3"
+List
+
+  curl -u user:pass -d "" "https://yourchurch.ccbchurch.com/api.php?srv=ability_list"
+Update
+
+  curl -u user:pass -d "" "https://yourchurch.ccbchurch.com/api.php?srv=ability_update&ability_id=9&name=BOOKKEEPING"
+Example XML
+
+Detail
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ccb_api>
+  <request>
+    <parameters>
+      <argument value="ability_detail" name="srv"/>
+      <argument value="9" name="ability_id"/>
+    </parameters>
+  </request>
+  <response>
+    <service>ability_detail</service>
+    <service_action>execute</service_action>
+    <availability>public</availability>
+    <abilities count="1">
+      <ability id="9">
+        <name>Pro - Bookkeeping</name>
+        <order_by>9</order_by>
+        <owner id="1">
+          <first_name>Larry</first_name>
+          <last_name>Cucumber</last_name>
+          <full_name>Larry Cucumber</full_name>
+          <email>test@test.com</email>
+          <phones>
+            <phone type="contact">0123456789F</phone>
+          </phones>
+        </owner>
+        <editable>1</editable>
+        <listed>1</listed>
+        <creator id="0">System User</creator>
+        <modifier id="0">System User</modifier>
+        <created>0000-00-00 00:00:00</created>
+        <modified>2001-12-06 23:29:49</modified>
+      </ability>
+    </abilities>
+  </response>
+</ccb_api>
+Insert
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ccb_api>
+  <request>
+     <parameters>
+        <argument value="ability_insert" name="srv"/>
+        <argument value="YrL7FcOKl37JFprC" name="name"/>
+        <argument value="3" name="order_by"/>
+     </parameters>
+  </request>
+  <response>
+    <service>ability_insert</service>
+    <service_action>execute</service_action>
+    <availability>public</availability>
+    <abilities count="1">
+      <ability id="144">
+        <name>YrL7FcOKl37JFprC</name>
+        <order_by>3</order_by>
+        <owner id="1">
+          <first_name>Larry</first_name>
+          <last_name>Cucumber</last_name>
+          <full_name>Larry Cucumber</full_name>
+          <email>test@test.com</email>
+          <phones>
+            <phone type="contact">0123456789F</phone>
+          </phones>
+        </owner>
+        <editable>1</editable>
+        <listed>1</listed>
+        <creator id="0">System User</creator>
+        <modifier id="0">System User</modifier>
+        <created>2014-01-28 10:25:29</created>
+        <modified>2014-01-28 10:25:29</modified>
+      </ability>
+    </abilities>
+  </response>
+</ccb_api>
+List
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ccb_api>
+   <request>
+      <parameters>
+        <argument value="ability_list" name="srv"/>
+      </parameters>
+   </request>
+   <response>
+      <service>ability_list</service>
+      <service_action>execute</service_action>
+      <availability>public</availability>
+      <items count="144">
+        <item>
+          <item_id type="ability">1</item_id>
+          <id>1</id>
+          <name>Pro - Mental Health</name>
+          <order>1</order>
+        </item>
+        …
+        <item>
+          <item_id type="ability">143</item_id>
+          <id>143</id>
+          <name>Work With - Hospital Visits</name>
+          <order>143</order>
+        </item>
+      </items>
+   </response>
+</ccb_api>
+Update
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ccb_api>
+  <request>
+    <parameters>
+      <argument value="ability_update" name="srv"/>
+      <argument value="9" name="ability_id"/>
+      <argument value="BOOKKEEPING" name="name"/>
+    </parameters>
+  </request>
+  <response>
+    <service>ability_update</service>
+    <service_action>execute</service_action>
+    <availability>public</availability>
+    <abilities count="1">
+      <ability id="9">
+        <name>BOOKKEEPING</name>
+        <order_by>9</order_by>
+        <owner id="1">
+          <first_name>Larry</first_name>
+          <last_name>Cucumber</last_name>
+          <full_name>Larry Cucumber</full_name>
+          <email>test@test.com</email>
+          <phones>
+            <phone type="contact">0123456789F</phone>
+          </phones>
+        </owner>
+        <editable>1</editable>
+        <listed>1</listed>
+        <creator id="0">System User</creator>
+        <modifier id="0">System User</modifier>
+        <created>0000-00-00 00:00:00</created>
+        <modified>2014-01-28 10:25:33</modified>
+      </ability>
+    </abilities>
+  </response>
+</ccb_api>
