@@ -15,7 +15,7 @@ namespace DockRequestSamples
                 var options = new Dictionary<string, object> {{"last_name", "Comer"}, {"city", "Acworth"}};
                 //var options = new Dictionary<string, object> { { "id", "133" }};
                 //var doc = DockRequest.FindProfiles(options);
-                var doc = DockRequest.ListService("significant_event");
+                var doc = DockRequest.ListService("family");
                 Console.WriteLine(doc.ToString());
                 /*var ind = doc.Descendants("individuals").FirstOrDefault();
                 if (ind != null) {
