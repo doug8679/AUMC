@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockAPI_Routines", "DockAPI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockRequestSamples", "DockRequestSamples\DockRequestSamples.csproj", "{A8D79636-85F0-4113-89B1-994D19ADF5C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockFieldSwap", "DockFieldSwap\DockFieldSwap.csproj", "{76B383F1-8852-49FC-B6BB-67F2DD12D30D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A8D79636-85F0-4113-89B1-994D19ADF5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8D79636-85F0-4113-89B1-994D19ADF5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8D79636-85F0-4113-89B1-994D19ADF5C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76B383F1-8852-49FC-B6BB-67F2DD12D30D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B383F1-8852-49FC-B6BB-67F2DD12D30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B383F1-8852-49FC-B6BB-67F2DD12D30D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B383F1-8852-49FC-B6BB-67F2DD12D30D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
