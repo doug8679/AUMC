@@ -9,6 +9,10 @@ using DockAPI_Routines;
 
 namespace DockFieldSwap
 {
+    /// <summary>
+    /// This program was used to migrate data from the user-defined date fields in CCB to the Significant Events table.  High-School graduations and Baptisms
+    /// were moved to Significant Events.  This was performed on 8/3/2016 @ 3:00PM.
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
