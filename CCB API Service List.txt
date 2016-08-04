@@ -1,0 +1,123 @@
+API Function List:
+==================
+
+Event Services
+--------------
+	Add Individual to Event (add_individual_to_event)
+	Attendance Profile (attendance_profile)
+	Attendance Profiles (attendance_profiles)
+	Create Event (create_event) - POST
+	Create Event Attendance (create_event_attendance) - Requires XML input
+	Event Profile (event_profile)
+	Event Profiles (event_profiles)
+	Resource List (resource_list)
+	
+Form Services
+-------------
+	Form Detail (form_detail)
+	Form List (form_list)
+	Form Responses (form_responses)
+	
+Group Services
+--------------
+	Add Individual to Group
+	Add Individual to Queue
+	Create Group
+	Create Group Position
+	Group Needs
+	Group Participants
+	Manage Group Leaders
+	Group Positions
+	Group Profile from ID
+	Group Profiles
+	Position List
+	Remove Individual from Group
+	Update Group
+	Update Group Position
+	
+Individual Profile Services
+---------------------------
+	Add Individual to Position
+	Add Significant Event for Individual
+	Individual MICR
+	Community Login
+	Create Individual
+	Execute Saved Search
+	Family Detail
+	Family List
+	Individual Attendance
+	Individual Availability
+	Individual Calendar Listing
+	Individual Fit
+	Individual Groups
+	Inactivate Individual
+	Individual Notes
+	Individual Profile from ID
+	Individual Profile from Login and Password
+	Individual Profile from MICR
+	Individual Profiles
+	Individual Queues List
+	Individual Search
+	Merged Individuals
+	Saved Search Listing
+	Set Individual Credentials
+	Significant Events for Individual
+	Update Individual
+	Update Individual Fit
+	Valid Individuals
+	
+Lookup Table Services
+---------------------
+	With each service you can preform a list, detail, update, or insert. For example you can get the listing of all age brackets, the detail of a single age bracket, update an existing age bracket or insert a new age bracket. The service calls for these would be age_bracket_list, age_bracket_detail, age_bracket_update, age_bracket_insert. The complete list of services is listed below with each requiring one of the following to be appended to create a valid service _list, _detail, _update, or _insert (for example age_bracket is not a valid service). If you pass in an invalid id into any of the _update services the response will contain empty elements instead of an error.
+		ability
+		activity
+		age_bracket
+		area
+		church_service
+		event_grouping
+		gift
+		group_grouping
+		group_type
+		how_joined_church
+		how_they_heard
+		meet_day
+		meet_time
+		membership_type
+		passion
+		reason_left_church
+		school
+		school_grade
+		significant_event
+		spiritual_maturity
+		style
+		transaction_grouping
+		udf_grp_pulldown_1
+		udf_grp_pulldown_2
+		udf_grp_pulldown_3
+		udf_ind_pulldown_1
+		udf_ind_pulldown_2
+		udf_ind_pulldown_3
+		udf_ind_pulldown_4
+		udf_ind_pulldown_5
+		udf_ind_pulldown_6
+		udf_resource_pulldown_1
+
+Process Services
+----------------
+	Process List
+	Process Managers
+	Queue Individuals
+	Queue List
+	Queue Managers
+	
+Public Web Tools
+----------------
+	Calendar Listing
+	Campus List
+	Custom Field Label Listing
+	Group Finder
+	Import Online Gifts
+	Mobile Carrier Listing
+	Online Giving
+	Update Custom Field Labels
+	

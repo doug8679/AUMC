@@ -1,0 +1,20 @@
+Record attendance for a group event
+===================================
+
+Select the group from a list
+	Should load a list of events (from 1 week prior to current date)
+	Should load a checked list of group participants
+
+Select the event to record attendance for
+	Should provide inputs for the various aspects of the attendance record (info, notes, prayers, etc)
+	
+Select participants present
+	Click the check box by each person
+	Should we allow search/insertion of non-group member like CCB does?
+	
+Provide other input data (where appropriate)
+
+Click submit
+	Builds proper XML file for submission
+	Call API service with input
+	Retrieves response and dispatches appropriate UI changes based on response
