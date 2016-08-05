@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -15,8 +16,11 @@ namespace DockRequestSamples
                 var options = new Dictionary<string, object> {{"last_name", "Comer"}, {"city", "Acworth"}};
                 //var options = new Dictionary<string, object> { { "id", "133" }};
                 //var doc = DockRequest.FindProfiles(options);
-                var doc = DockRequest.ListService("family");
-                Console.WriteLine(doc.ToString());
+                var groups = DockRequest.GetAllGroups();
+                foreach (var group in groups) {
+                    Console.WriteLine(group);
+                }
+                //Console.WriteLine(doc.ToString());
                 /*var ind = doc.Descendants("individuals").FirstOrDefault();
                 if (ind != null) {
                     var people = ind.Elements("individual").Select(elm => new DockAPI_Routines.Person(elm)).ToList();

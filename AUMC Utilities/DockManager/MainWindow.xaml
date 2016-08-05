@@ -5,16 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DockManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" Loaded="MainWindow_OnLoaded">
     <TabControl>
-        <TabItem Header="Family Data">
+        <TabItem Header="Attendance Manager">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
-                <TreeView Grid.Column="0" />
-                <Label Grid.Column="1" Content="Display Data Here" />
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Foreground="Black" FontWeight="Bold" Content="Groups:" />
+                    <ListBox Grid.Row="1" Name="lstGroups" SelectionChanged="LstGroups_OnSelectionChanged"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Label Content="Select Event:" />
+                    <ComboBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Name="cmbEvents" />
+                    <ListBox Name="lstParticipants" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4"></ListBox>
+                </Grid>
             </Grid>
         </TabItem>
         <TabItem Header="Page 2" />

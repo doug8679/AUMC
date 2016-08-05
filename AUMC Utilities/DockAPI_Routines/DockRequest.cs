@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -199,6 +200,67 @@ namespace DockAPI_Routines
 			Console.WriteLine($"ReadCallaback processed in {sw.ElapsedMilliseconds} milliseconds.");
 			return;
 		}
+
+	    public static List<Group> GroupSearch(Dictionary<string, object> options) {
+            List<Group> result = new List<Group>();
+            string query;
+            bool hasQuery = BuildSearchQuery(options, out query);
+            var request = WebRequest.Create(baseURL + "group_search" + query);
+            AddRequestAuthorizationHeader(request);
+	        try {
+	            using (var response = request.GetResponse()) {
+	                var doc = XDocument.Load(response.GetResponseStream());
+	                var groups = doc.Descendants("items").FirstOrDefault();
+	                if (groups != null) {
+	                    foreach (var group in groups.Elements("item")) {
+	                        result.Add(new Group(group));
+	                    }
+                        result.Sort();
+                    }
+	            }
+	        } catch (Exception ex) {
+	            throw new Exception("Exception during request.", ex);
+	        }
+	        return result;
+        }
+
+	    public static List<Group> GetAllGroups(bool participants = false) {
+	        List<Group> result = new List<Group>();
+	        var request = WebRequest.Create(baseURL + "group_profiles&include_participants=" + participants);
+	        AddRequestAuthorizationHeader(request);
+	        try {
+	            using (var response = request.GetResponse()) {
+	                var doc = XDocument.Load(response.GetResponseStream());
+	                var groups = doc.Descendants("groups").FirstOrDefault();
+	                if (groups != null) {
+	                    foreach (var group in groups.Elements("group")) {
+	                        result.Add(new Group(group));
+	                    }
+                        result.Sort();
+                    }
+	            }
+	        } catch (Exception ex) {
+	            throw new Exception("Exception during request.", ex);
+	        }
+	        return result;
+	    }
+
+	    public static object GetEventsFromLink(string link) {
+	        var request = WebRequest.Create(link.Replace("webcal", "http"));
+	        try {
+	            using (var response = request.GetResponse()) {
+	                using (var reader = new StreamReader(response.GetResponseStream())) {
+	                    string line;
+	                    while ((line = reader.ReadLine()) != null) {
+	                        Console.WriteLine(line);
+	                    }
+	                }
+	            }
+	        } catch (Exception ex) {
+	            Console.WriteLine(ex.ToString());
+	        }
+	        return null;
+	    }
 	}
 
 	public class RequestState {

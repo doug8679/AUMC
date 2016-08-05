@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DockAPI_Routines;
 
 namespace DockManager
 {
@@ -23,6 +24,19 @@ namespace DockManager
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e) {
+            // Retrieve a list of groups from CCB and display them on the form:
+            lstGroups.ItemsSource = DockRequest.GetAllGroups();
+        }
+
+        private void LstGroups_OnSelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var group = lstGroups.SelectedItem as Group;
+            // Retrieve events for the group:
+            DockRequest.GetEventsFromLink(group.CalendarFeed);
+            var end = DateTime.Now;
+            var start = end.AddDays(-7);
         }
     }
 }
